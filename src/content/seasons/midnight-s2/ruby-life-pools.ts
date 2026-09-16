@@ -1,0 +1,20 @@
+import type { Mechanic } from "../../schema";
+
+const review = { status: "reviewed" as const, gameVersion: "12.1", verifiedAt: "2026-09-08", verifiedBy: "M+ Debuff Encyclopedia curators" };
+const wowhead = (id: number) => ({ label: "View on Wowhead", url: `https://www.wowhead.com/spell=${id}`, type: "wowhead" as const });
+const official = { label: "Blizzard dungeon notes", url: "https://worldofwarcraft.blizzard.com/en-us/news/24280285", type: "official" as const };
+
+export const rubyLifePools: Mechanic[] = [
+  {
+    id: "ruby-chillstorm", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Chillstorm", kind: "player-debuff", sourceType: "boss", sources: [{ name: "Melidrussa Chillworn" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "use-defensive", secondaryCategories: ["healer-check", "avoidable"], priority: "critical", spellRefs: [{ spellId: 372808, purpose: "applied-aura", trackable: true }, { spellId: 372808, purpose: "cast", trackable: false }], summary: "A group-wide storm that forces movement while frost damage continues to tick.", recommendedResponse: "Spread into the assigned safe space, use a personal defensive when your health or movement assignment demands it, and keep healing cooldowns available for the overlap.", trackProminently: true, highKeyNotes: "The danger is the overlap with movement and add pressure, not the first tick by itself.", references: [official, wowhead(372808)], review,
+  },
+  {
+    id: "ruby-primal-chill", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Primal Chill", kind: "player-debuff", sourceType: "boss", sources: [{ name: "Melidrussa Chillworn" }], relevantRoles: ["healer", "dps"], primaryCategory: "dispel-when-safe", secondaryCategories: ["healer-check"], dispelType: "magic", priority: "high", spellRefs: [{ spellId: 372858, purpose: "applied-aura", trackable: true }], summary: "A magic chill that becomes more dangerous when left to overlap with the boss's frost sequence.", recommendedResponse: "Dispel the marked player when they are in a safe position; avoid creating a second movement problem during Chillstorm.", trackProminently: true, highKeyNotes: "Pre-assign who handles the first dispel so the healer can focus on the storm pattern.", references: [official, wowhead(372858)], review,
+  },
+  {
+    id: "ruby-rolling-thunder", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Rolling Thunder", kind: "cast", sourceType: "trash", sources: [{ name: "Thunderhead" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "avoidable", secondaryCategories: ["use-defensive"], priority: "high", spellRefs: [{ spellId: 372863, purpose: "cast", trackable: false }, { spellId: 372863, purpose: "damage", trackable: false }], summary: "A rolling electrical hit that travels through the fight space and punishes poor positioning.", recommendedResponse: "Move early, interrupt where possible, and reserve a defensive if the path cannot be cleanly avoided.", trackProminently: false, highKeyNotes: "A tracker is useful for the cast timer, but the response is positioning—not dispelling.", references: [official, wowhead(372863)], review,
+  },
+  {
+    id: "ruby-infuse", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Infuse", kind: "enemy-buff", sourceType: "trash", sources: [{ name: "Tempest Channeler" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "dispel-immediately", secondaryCategories: ["use-defensive"], dispelType: "enrage", priority: "critical", spellRefs: [{ spellId: 372682, purpose: "enemy-aura", trackable: false }], summary: "An enemy empowerment that sharply increases the damage of the next dangerous cast.", recommendedResponse: "Interrupt or remove the enemy empowerment immediately; if it lands, use a defensive and stabilize before the next pull.", trackProminently: true, highKeyNotes: "This is a priority target call, not a player-dispel call—label it clearly in your UI exports.", references: [official, wowhead(372682)], review,
+  },
+];
