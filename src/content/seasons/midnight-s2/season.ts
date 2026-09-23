@@ -6,7 +6,7 @@ export const season: Season = {
   expansion: "Midnight",
   patch: "12.1",
   status: "active",
-  lastReviewedAt: "2026-09-22",
+  lastReviewedAt: "2026-09-23",
   dungeonIds: [
     "altar-of-fangs",
     "murder-row",
