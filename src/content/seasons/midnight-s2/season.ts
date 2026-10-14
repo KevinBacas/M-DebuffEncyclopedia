@@ -4,9 +4,9 @@ export const season: Season = {
   id: "midnight-s2",
   name: "Midnight Season 2",
   expansion: "Midnight",
-  patch: "12.1",
+  patch: "12.1.5",
   status: "active",
-  lastReviewedAt: "2026-10-07",
+  lastReviewedAt: "2026-10-14",
   dungeonIds: [
     "altar-of-fangs",
     "murder-row",

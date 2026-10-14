@@ -1,10 +1,14 @@
 import type { Mechanic } from "../../schema";
 
-const review = { status: "reviewed" as const, gameVersion: "12.1", verifiedAt: "2026-09-08", verifiedBy: "M+ Debuff Encyclopedia curators" };
+const review = { status: "reviewed" as const, gameVersion: "12.1.5", verifiedAt: "2026-10-14", verifiedBy: "M+ Debuff Encyclopedia curators" };
 const wowhead = (id: number) => ({ label: "View on Wowhead", url: `https://www.wowhead.com/spell=${id}`, type: "wowhead" as const });
 const official = { label: "Blizzard dungeon notes", url: "https://worldofwarcraft.blizzard.com/en-us/news/24280285", type: "official" as const };
+const tuning = { label: "Blizzard 12.1.5 tuning", url: "https://worldofwarcraft.blizzard.com/en-us/news/24304162/", type: "official" as const };
 
 export const rubyLifePools: Mechanic[] = [
+  {
+    id: "ruby-living-bomb", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Living Bomb", kind: "player-debuff", sourceType: "trash", sources: [{ name: "Primalist Cinderweaver" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "dispel-immediately", secondaryCategories: ["healer-check"], dispelType: "magic", priority: "critical", spellRefs: [{ spellId: 373693, purpose: "applied-aura", trackable: true }], summary: "A ticking fire bomb that explodes on expiration, dealing heavy group damage.", recommendedResponse: "Dispel the Magic debuff immediately. The 12.1.5 change makes it safe to remove: dispelling no longer triggers the explosion.", trackProminently: true, highKeyNotes: "Treat this as a first-priority dispel on fortified pulls; leaving it to expire still creates the original lethal explosion.", references: [official, tuning, wowhead(373693)], review,
+  },
   {
     id: "ruby-chillstorm", seasonId: "midnight-s2", dungeonId: "ruby-life-pools", name: "Chillstorm", kind: "player-debuff", sourceType: "boss", sources: [{ name: "Melidrussa Chillworn" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "use-defensive", secondaryCategories: ["healer-check", "avoidable"], priority: "critical", spellRefs: [{ spellId: 372808, purpose: "applied-aura", trackable: true }, { spellId: 372808, purpose: "cast", trackable: false }], summary: "A group-wide storm that forces movement while frost damage continues to tick.", recommendedResponse: "Spread into the assigned safe space, use a personal defensive when your health or movement assignment demands it, and keep healing cooldowns available for the overlap.", trackProminently: true, highKeyNotes: "The danger is the overlap with movement and add pressure, not the first tick by itself.", references: [official, wowhead(372808)], review,
   },

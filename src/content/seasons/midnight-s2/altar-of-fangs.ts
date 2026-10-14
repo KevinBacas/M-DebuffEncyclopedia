@@ -1,10 +1,13 @@
 import type { Mechanic } from "../../schema";
 
-const review = { status: "reviewed" as const, gameVersion: "12.1", verifiedAt: "2026-09-08", verifiedBy: "M+ Debuff Encyclopedia curators" };
+const review = { status: "reviewed" as const, gameVersion: "12.1.5", verifiedAt: "2026-10-14", verifiedBy: "M+ Debuff Encyclopedia curators" };
 const official = (url: string) => ({ label: "Blizzard dungeon notes", url, type: "official" as const });
 const wowhead = (id: number) => ({ label: "View on Wowhead", url: `https://www.wowhead.com/spell=${id}`, type: "wowhead" as const });
 
 export const altarOfFangs: Mechanic[] = [
+  {
+    id: "altar-paralyzing-shots", seasonId: "midnight-s2", dungeonId: "altar-of-fangs", name: "Paralyzing Shots", kind: "player-debuff", sourceType: "trash", sources: [{ name: "Twinfang Harrower" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "dispel-immediately", secondaryCategories: ["healer-check", "avoidable"], dispelType: "poison", priority: "critical", spellRefs: [{ spellId: 1294569, purpose: "applied-aura", trackable: true }, { spellId: 1294567, purpose: "cast", trackable: false }], summary: "A stacking venom that deals Nature damage every second and progressively slows the affected player.", recommendedResponse: "Interrupt the cast when possible; otherwise dispel the player immediately or remove the movement impairment with an appropriate freedom or immunity effect.", trackProminently: true, highKeyNotes: "Each tick adds another movement-slow stack, so a late dispel can make the next mechanic impossible to dodge. The 12.1.5 tuning shortened the duration to 14 seconds.", references: [official("https://worldofwarcraft.blizzard.com/en-us/news/24304162/"), wowhead(1294569)], review,
+  },
   {
     id: "altar-toxic-atrophy", seasonId: "midnight-s2", dungeonId: "altar-of-fangs", name: "Toxic Atrophy", kind: "player-debuff", sourceType: "boss", sources: [{ name: "The Writhing Coil" }], relevantRoles: ["tank", "healer", "dps"], primaryCategory: "dispel-when-safe", secondaryCategories: ["healer-check"], dispelType: "poison", priority: "critical", spellRefs: [{ spellId: 1234001, purpose: "applied-aura", trackable: true }, { spellId: 1234001, purpose: "cast", trackable: false }], summary: "A stacking poison that slows movement and reduces damage dealt while it persists.", recommendedResponse: "Coordinate a poison dispel after the group is clear of movement-sensitive hazards; do not dispel blindly during a forced path.", trackProminently: true, highKeyNotes: "At high keys, a missed dispel compounds with the next wave and can turn a recoverable mistake into a death.", references: [official("https://worldofwarcraft.blizzard.com/en-us/news/24280285"), wowhead(1234001)], review,
   },
