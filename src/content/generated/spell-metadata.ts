@@ -4,6 +4,8 @@ const icon = (name: string) => `https://wow.zamimg.com/images/wow/icons/large/${
 
 /** Objective metadata is kept separate from editorial mechanic guidance. */
 export const spellMetadata: Record<number, SpellMetadata> = {
+  1242869: { spellId: 1242869, name: "Echoing Maul", iconUrl: icon("ability_druid_ravage"), wowheadUrl: "https://www.wowhead.com/spell=1242869/echoing-maul", syncedAt: "2026-11-04" },
+  1253811: { spellId: 1253811, name: "Fel Spray", iconUrl: icon("spell_fire_felflamebreath"), wowheadUrl: "https://www.wowhead.com/spell=1253811/fel-spray", syncedAt: "2026-11-04" },
   734276: { spellId: 734276, name: "Murder in a Row", iconUrl: icon("inv_legendary_gun"), wowheadUrl: "https://www.wowhead.com/spell=734276/murder-in-a-row", syncedAt: "2026-10-21" },
   373693: { spellId: 373693, name: "Living Bomb", iconUrl: icon("spell_fire_livingbomb"), wowheadUrl: "https://www.wowhead.com/spell=373693/living-bomb", syncedAt: "2026-10-14" },
   372808: { spellId: 372808, name: "Chillstorm", iconUrl: icon("spell_frost_ice-shards"), wowheadUrl: "https://www.wowhead.com/spell=372808", syncedAt: "2026-09-08" },
